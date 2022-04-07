@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useMemo } from "react";
+import React, { useState, useRef, useEffect, useMemo, Suspense } from "react";
 import * as THREE from "three";
 import Box from "./Models/box";
 import Building from "./Models/building";
@@ -773,17 +773,20 @@ function Grid(props) {
       <gridHelper
         args={[GRID_SIZE * 10, props.gridDimensions, 0x5c78bd, 0x5c78bd]}
       />
-      {blocks &&
-        blocks.length > 0 &&
-        blocks.map((block, index) => {
-          if (MODEL_TO_DISPLAY === "BUILDING") {
-            return (
-              block.visible && <Building position={block.pos} key={index} />
-            );
-          } else {
-            return block.visible && <Box position={block.pos} key={index} />;
-          }
-        })}
+      <Suspense fallback={null}>
+        {blocks &&
+          blocks.length > 0 &&
+          blocks.map((block, index) => {
+            if (MODEL_TO_DISPLAY === "BUILDING") {
+              return (
+                block.visible && <Building position={block.pos} key={index} />
+              );
+            } else {
+              return block.visible && <Box position={block.pos} key={index} />;
+            }
+          })}
+      </Suspense>
+
       <mesh
         rotation={[-Math.PI / 2, 0, 0]}
         position={[0, -0.1, 0]}

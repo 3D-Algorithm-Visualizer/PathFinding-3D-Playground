@@ -9,8 +9,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Tutorial from "./Tutorial";
 import Settings from "./Settings";
 import { AwesomeButton, AwesomeButtonProgress } from "react-awesome-button";
-import AwesomeButtonStyles from "react-awesome-button/src/styles/styles.scss";
 import "react-awesome-button/dist/styles.css";
+import { WhatsApp } from "@material-ui/icons";
 
 //<OrbitControls enabled = {!worldSetup} />
 function World(props) {
@@ -153,8 +153,7 @@ function World(props) {
         </div>
         <div id="visualize_btn" className="header_items">
           <AwesomeButtonProgress
-            cssModule={AwesomeButtonStyles}
-            type="whatsapp"
+            type={WhatsApp}
             size="medium"
             disabled={runState || selected_algo_is_undefined}
             loadingLabel="Visualizing..."
@@ -172,7 +171,6 @@ function World(props) {
         </div>
         <div id="clearPath" className="header_items">
           <AwesomeButtonProgress
-            cssModule={AwesomeButtonStyles}
             type="whatsapp"
             size="medium"
             disabled={runState}
@@ -191,7 +189,6 @@ function World(props) {
         </div>
         <div id="clearWalls" className="header_items">
           <AwesomeButtonProgress
-            cssModule={AwesomeButtonStyles}
             type="whatsapp"
             size="medium"
             disabled={runState}
@@ -210,7 +207,6 @@ function World(props) {
         </div>
         <div className="header_items">
           <AwesomeButton
-            cssModule={AwesomeButtonStyles}
             type="whatsapp"
             size="medium"
             ripple={true}

@@ -1,1 +1,1 @@
-export const MODEL_TO_DISPLAY = "BLOCK"; // ""BUILDING" or "BLOCK"
+export const MODEL_TO_DISPLAY = "BUILDING"; // ""BUILDING" or "BLOCK"
